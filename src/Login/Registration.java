@@ -96,6 +96,8 @@ public class Registration extends JFrame implements ActionListener{
 				Login_Register.infoBox("Please do not use \" when creating your Username and Password", "Registration Error Message");
 			else if(tuser.getText().contains("\\") || tpass.getText().contains("\\"))
 				Login_Register.infoBox("Please do not use \\ when creating your Username and Password", "Registration Error Message");
+			else if(tpass.getText().contains(tuser.getText()))
+				Login_Register.infoBox("Please do not use the same username and password when creating your Username and Password", "Registration Error Message");
 			else {
 			try {
 				Database.saveToFile(tuser.getText(), tpass.getText());
