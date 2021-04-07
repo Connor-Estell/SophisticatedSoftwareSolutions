@@ -82,6 +82,20 @@ public class Registration extends JFrame implements ActionListener{
 				Login_Register.infoBox("This username is already taken, please choose another.", "Registration Error Message");
 			else if(tuser.getText().contains(",") || tpass.getText().contains(","))
 				Login_Register.infoBox("Please do not use commas (,) when creating your Username and Password", "Registration Error Message");
+			else if(tuser.getText().contains("\n") || tpass.getText().contains("\n"))
+				Login_Register.infoBox("Please do not use \n when creating your Username and Password", "Registration Error Message");
+			else if(tuser.getText().contains("\b") || tpass.getText().contains("\b"))
+				Login_Register.infoBox("Please do not use \b when creating your Username and Password", "Registration Error Message");
+			else if(tuser.getText().contains("\t") || tpass.getText().contains("\t"))
+				Login_Register.infoBox("Please do not use \t when creating your Username and Password", "Registration Error Message");
+			else if(tuser.getText().contains("\r") || tpass.getText().contains("\r"))
+				Login_Register.infoBox("Please do not use \r when creating your Username and Password", "Registration Error Message");
+			else if(tuser.getText().contains("\f") || tpass.getText().contains("\f"))
+				Login_Register.infoBox("Please do not use \f when creating your Username and Password", "Registration Error Message");
+			else if(tuser.getText().contains("\"") || tpass.getText().contains("\""))
+				Login_Register.infoBox("Please do not use \" when creating your Username and Password", "Registration Error Message");
+			else if(tuser.getText().contains("\\") || tpass.getText().contains("\\"))
+				Login_Register.infoBox("Please do not use \\ when creating your Username and Password", "Registration Error Message");
 			else {
 			try {
 				Database.saveToFile(tuser.getText(), tpass.getText());
