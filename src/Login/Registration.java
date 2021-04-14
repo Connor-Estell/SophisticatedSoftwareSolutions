@@ -105,7 +105,7 @@ public class Registration extends JFrame implements ActionListener{
 				e1.printStackTrace();
 			}
 			Login_Register.infoBox("Thank you for registering!", "Registration Success");
-			User frame = new User();
+			UserView frame = new UserView();
 			frame.setVisible(true);
 			frame.setSize(670, 670);
 			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
