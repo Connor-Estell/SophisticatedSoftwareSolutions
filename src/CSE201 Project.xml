@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="HomePage" name="CSE201 Project">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="CSE201 Project.classpath">
+        <pathelement location="bin"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="CSE201 Project.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="HomePage">
+        <java classname="HomePage" failonerror="true" fork="yes">
+            <classpath refid="CSE201 Project.classpath"/>
+        </java>
+    </target>
+    <target name="Login" depends="Login_Register">
+        <java classname="Login" failonerror="true" fork="yes">
+            <classpath refid="CSE201 Project.classpath"/>
+        </java>
+    </target>
+    <target name="Login_Register" depends="HomePage">
+        <java classname="Login_Register" failonerror="true" fork="yes" depends="HomePage">
+            <classpath refid="CSE201 Project.classpath"/>
+        </java>
+    </target>
+    <target name="User" depends="Login">
+        <java classname="User" failonerror="true" fork="yes" depends="Login">
+            <classpath refid="CSE201 Project.classpath"/>
+        </java>
+    </target>
+    <target name="Registration" depends="Login_Register">
+       <java classname="Registration" failonerror="true" fork="yes">
+           <classpath refid="CSE201 Project.classpath"/>
+         </java>
+    </target>
+    <target name="Database">
+       <java classname="Database" failonerror="true" fork="yes">
+           <classpath refid="CSE201 Project.classpath"/>
+         </java>
+    </target>
+</project>
