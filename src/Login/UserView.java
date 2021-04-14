@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.PrintWriter;
 
-public class User extends JFrame implements ActionListener {
+public class UserView extends JFrame implements ActionListener {
 	JLabel appName, description, organization, version, search;
 	JTextField nameTF, descriptionTF, orgTF, versionTF, searchTF;
 	JButton addButton, saveButton, Logout;
