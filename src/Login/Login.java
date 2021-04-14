@@ -78,7 +78,7 @@ public class Login extends JFrame implements ActionListener{
 				Login_Register.infoBox("Please input a correct username and password.", "Log-in Error Message");
 			else {
 				Login_Register.infoBox("Thank you for logging in!", "Log-in Success");
-				User frame = new User();
+				UserView frame = new UserView();
 				frame.setVisible(true);
 				frame.setSize(670, 670);
 				setDefaultCloseOperation(DISPOSE_ON_CLOSE);
