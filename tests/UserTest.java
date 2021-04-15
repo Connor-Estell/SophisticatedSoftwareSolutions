@@ -57,10 +57,15 @@ public class UserTest {
 	 */
 	@Test
 	void testUserStringStringArrayListOfString() {
+		// Creates a dummy list of platforms
+		ArrayList<String> platforms = new ArrayList<String>();
+		platforms.add("ios");
+		platforms.add("android");
+		
 		// Creates a dummy list of apps
-		ArrayList<String> apps = new ArrayList<String>();
-		apps.add("Instagram, Share memories with friends, (ios, android), instagram.com");
-		apps.add("ESPN, Worldwide leader in sports news, (ios, android), espn.com");
+		ArrayList<App> apps = new ArrayList<App>();
+		apps.add(new App("Instagram", "Share memories with friends", platforms, "instagram.com"));
+		apps.add(new App("ESPN", "Worldwide leader in sports news", platforms, "espn.com"));
 		
 		// Creates null user
 		User u1 = null;
@@ -87,7 +92,7 @@ public class UserTest {
 		
 		// Ensure created apps are in list
 		assertTrue(u1.getCreatedApps().size() != 0);
-		assertTrue(u1.getCreatedApps().get(0).equals("Instagram, Share memories with friends, (ios, android), instagram.com"));
+		assertTrue(u1.getCreatedApps().get(0).getName().equals("Instagram"));
 	}
 
 	/**
@@ -102,8 +107,15 @@ public class UserTest {
 		assertTrue(u1.getUserName().equals("example"));
 		assertFalse(u1.getUserName().equals("user1234"));
 		
+		// Creates a dummy list of platforms
+		ArrayList<String> platforms = new ArrayList<String>();
+		platforms.add("ios");
+		platforms.add("android");
+		
 		// Creates a dummy list of apps
-		ArrayList<String> apps = new ArrayList<String>();
+		ArrayList<App> apps = new ArrayList<App>();
+		apps.add(new App("Instagram", "Share memories with friends", platforms, "instagram.com"));
+		apps.add(new App("ESPN", "Worldwide leader in sports news", platforms, "espn.com"));
 		
 		// Initializes user
 		User u2 = new User("example2", "fhfbsf", apps);
@@ -125,8 +137,16 @@ public class UserTest {
 		assertTrue(u1.getPassword().equals("user1234"));
 		assertFalse(u1.getPassword().equals("p@ssW0rD"));
 		
+		// Creates a dummy list of platforms
+		ArrayList<String> platforms = new ArrayList<String>();
+		platforms.add("ios");
+		platforms.add("android");
+				
 		// Creates a dummy list of apps
-		ArrayList<String> apps = new ArrayList<String>();
+		ArrayList<App> apps = new ArrayList<App>();
+		apps.add(new App("Instagram", "Share memories with friends", platforms, "instagram.com"));
+		apps.add(new App("ESPN", "Worldwide leader in sports news", platforms, "espn.com"));
+
 		
 		// Initializes user
 		User u2 = new User("example2", "p@ssW0rD", apps);
@@ -141,18 +161,24 @@ public class UserTest {
 	 */
 	@Test
 	void testGetCreatedApps() {
+		// Creates a dummy list of platforms
+		ArrayList<String> platforms = new ArrayList<String>();
+		platforms.add("ios");
+		platforms.add("android");
+		
 		// Creates a dummy list of apps
-		ArrayList<String> apps = new ArrayList<String>();
-		apps.add("Instagram, Share memories with friends, (ios, android), instagram.com");
-		apps.add("ESPN, Worldwide leader in sports news, (ios, android), espn.com");
+		ArrayList<App> apps = new ArrayList<App>();
+		apps.add(new App("Instagram", "Share memories with friends", platforms, "instagram.com"));
+		apps.add(new App("ESPN", "Worldwide leader in sports news", platforms, "espn.com"));
+
 		
 		// Initializes user
 		User u1 = new User("example", "user1234", apps);
 		
 		// Ensure created apps are in list
-		assertEquals(u1.getCreatedApps().get(0), "Instagram, Share memories with friends, (ios, android), instagram.com");
-		assertFalse(u1.getCreatedApps().get(0).equals("ESPN, Worldwide leader in sports news, (ios, android), espn.com"));
-		assertFalse(u1.getCreatedApps().get(0).equals("Twitter, Speak in a 140 chars or less, (ios, android), twitter.com"));
+		assertEquals(u1.getCreatedApps().get(0).getName(), "Instagram");
+		assertFalse(u1.getCreatedApps().get(0).getName().equals("ESPN"));
+		assertFalse(u1.getCreatedApps().get(0).getName().equals("Twitter"));
 	}
 
 	/**
@@ -185,17 +211,22 @@ public class UserTest {
 	 */
 	@Test
 	void testRequestNewApp() {
+		// Creates a dummy list of platforms
+		ArrayList<String> platforms = new ArrayList<String>();
+		platforms.add("ios");
+		platforms.add("android");
+		
 		// Creates a dummy list of apps
-		ArrayList<String> apps = new ArrayList<String>();
-		apps.add("Instagram, Share memories with friends, (ios, android), instagram.com");
-		apps.add("ESPN, Worldwide leader in sports news, (ios, android), espn.com");
+		ArrayList<App> apps = new ArrayList<App>();
+		apps.add(new App("Instagram", "Share memories with friends", platforms, "instagram.com"));
+		apps.add(new App("ESPN", "Worldwide leader in sports news", platforms, "espn.com"));
 	
 		// Initializes user
 		User u1 = new User("example", "user1234", apps);
 		
 		// Checks if the if the string is formatted and details are correct
-		assertTrue(u1.requestNewApp("Twitter", "Speak in a 140 chars or less", "(ios, android)", "twitter.com").equals("Your app request:\n  Name: Twitter\n  Desc: Speak in a 140 chars or less\n  Platform(s): (ios, android)\n  Link: twitter.com"));
-		assertFalse(u1.requestNewApp("Twitter", "Speak in a 140 chars or less", "(ios, android)", "twitter.com").equals("Twitter, Speak in a 140 chars or less, (ios, android), twitter.com"));
+		assertTrue(u1.requestNewApp("Twitter", "Speak in a 140 chars or less", platforms, "twitter.com").equals("Your app request:\n  Name: Twitter\n  Desc: Speak in a 140 chars or less\n  Link: twitter.com"));
+		assertFalse(u1.requestNewApp("Twitter", "Speak in a 140 chars or less", platforms, "twitter.com").equals("Twitter, Speak in a 140 chars or less, twitter.com"));
 	
 		// Initializes user
 		User u2 = new User("example2", "user1234");
@@ -204,8 +235,8 @@ public class UserTest {
 		assertTrue(u2.getCreatedApps() != null);
 		
 		// Checks if the if the string is formatted and details are correct
-		assertTrue(u2.requestNewApp("Twitter", "Speak in a 140 chars or less", "(ios, android)", "twitter.com").equals("Your app request:\n  Name: Twitter\n  Desc: Speak in a 140 chars or less\n  Platform(s): (ios, android)\n  Link: twitter.com"));
-		assertFalse(u2.requestNewApp("Twitter", "Speak in a 140 chars or less", "(ios, android)", "twitter.com").equals("Twitter, Speak in a 140 chars or less, (ios, android), twitter.com"));
+		assertTrue(u2.requestNewApp("Twitter", "Speak in a 140 chars or less", platforms, "twitter.com").equals("Your app request:\n  Name: Twitter\n  Desc: Speak in a 140 chars or less\n  Link: twitter.com"));
+		assertFalse(u2.requestNewApp("Twitter", "Speak in a 140 chars or less", platforms, "twitter.com").equals("Twitter, Speak in a 140 chars or less, twitter.com"));
 	}
 
 	/**
@@ -213,10 +244,15 @@ public class UserTest {
 	 */
 	@Test
 	void testEquals() {
+		// Creates a dummy list of platforms
+		ArrayList<String> platforms = new ArrayList<String>();
+		platforms.add("ios");
+		platforms.add("android");
+			
 		// Creates a dummy list of apps
-		ArrayList<String> apps = new ArrayList<String>();
-		apps.add("Instagram, Share memories with friends, (ios, android), instagram.com");
-		apps.add("ESPN, Worldwide leader in sports news, (ios, android), espn.com");
+		ArrayList<App> apps = new ArrayList<App>();
+		apps.add(new App("Instagram", "Share memories with friends", platforms, "instagram.com"));
+		apps.add(new App("ESPN", "Worldwide leader in sports news", platforms, "espn.com"));
 	
 		// Initializes users
 		User u1 = new User("example", "user1234", apps);
