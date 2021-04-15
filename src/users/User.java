@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Course: CSE 201, Section C
  * Date: 4/8/2021
  * Assignment: Appdex
- * File: UserTest.java
+ * File: User.java
  * Description: This class creates a User object that represents
  * the basic user in the system that has an account. The user
  * has a userrname, password and a list of apps that they contributed.
@@ -17,7 +17,7 @@ public class User {
 	// Creates the fields of the User
 	private String userName;
 	private String password;
-	private ArrayList<String> createdApps;
+	private ArrayList<App> createdApps;
 	
 	/**
 	 * Created for a newly registered user
@@ -28,7 +28,7 @@ public class User {
 	public User(String uName, String pass) {
 		this.userName = uName;
 		this.password = pass;
-		this.createdApps = new ArrayList<String>();
+		this.createdApps = new ArrayList<App>();
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public class User {
 	 * @param pass the password
 	 * @param apps the list of apps the user submitted
 	 */
-	public User(String uName, String pass, ArrayList<String> apps) {
+	public User(String uName, String pass, ArrayList<App> apps) {
 		this.userName = uName;
 		this.password = pass;
 		this.createdApps = apps;
@@ -63,7 +63,7 @@ public class User {
 	 * Returns the apps the user created
 	 * @return the list of apps
 	 */
-	public ArrayList<String> getCreatedApps() {
+	public ArrayList<App> getCreatedApps() {
 		return this.createdApps;
 	}
 	
@@ -95,12 +95,12 @@ public class User {
 	 * @param link a link to the app's website
 	 * @return formatted string to the user
 	 */
-	public String requestNewApp(String name, String desc, String platforms, String link) {
-		String appName = name + ", " + desc + ", " + platforms + ", " + link;
+	public String requestNewApp(String name, String desc, ArrayList<String> platforms, String link) {
+		App newApp = new App(name, desc, platforms, link);
 		
-		createdApps.add(appName);
+		createdApps.add(newApp);
 		
-		return "Your app request:\n  Name: " + name + "\n  Desc: " + desc + "\n  Platform(s): " + platforms + "\n  Link: " + link;
+		return "Your app request:\n  Name: " + name + "\n  Desc: " + desc + "\n  Link: " + link;
 	}
 	
 	/**
