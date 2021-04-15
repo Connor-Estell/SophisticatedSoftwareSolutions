@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
  * tests focus on creating constructors and various getters
  * and mutators along with the request feature.
  */
-class ModeratorTest {
+public class ModeratorTest {
 	/**
 	 * Checks if the existing moderator constructor is developed correctly
 	 */
