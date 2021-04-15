@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * Assignment: Appdex
  * File: ModeratorTest.java
  * Description: This class provides the JUnit Tests cases
- * for the User object in the Appdex application. These
+ * for the Moderator object in the Appdex application. These
  * tests focus on creating constructors and various getters
  * and mutators along with the request feature.
  */
