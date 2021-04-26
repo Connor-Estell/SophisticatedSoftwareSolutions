@@ -3,7 +3,7 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="HomePage" name="CSE201 Project">
+              as the first entry and export the buildfile again. --><project basedir="." default="run" name="CSE201 Project">
     <property environment="env"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
@@ -43,13 +43,13 @@
             <classpath refid="CSE201 Project.classpath"/>
         </java>
     </target>
-    <target name="Login_Register" depends="HomePage">
-        <java classname="Login_Register" failonerror="true" fork="yes" depends="HomePage">
+    <target name="Login_Register">
+        <java classname="Login_Register" failonerror="true" fork="yes">
             <classpath refid="CSE201 Project.classpath"/>
         </java>
     </target>
-    <target name="User" depends="Login">
-        <java classname="User" failonerror="true" fork="yes" depends="Login">
+    <target name="User">
+        <java classname="User" failonerror="true" fork="yes">
             <classpath refid="CSE201 Project.classpath"/>
         </java>
     </target>
@@ -58,9 +58,27 @@
            <classpath refid="CSE201 Project.classpath"/>
          </java>
     </target>
-    <target name="Database">
-       <java classname="Database" failonerror="true" fork="yes">
-           <classpath refid="CSE201 Project.classpath"/>
-         </java>
-    </target>
+              	<target name="compile" description="Compiles the program">
+              		<javac includeantruntime="false" srcdir="src" />
+              	</target>
+              	<target name="run" depends="compile" description="Runs the basic program">
+              		<java classname="HomePage" failonerror="true" fork="yes">
+              		<classpath refid="CSE201 Project.classpath"/>
+              			</java>
+              </target>
+              	<target name="logging-in" depends="compile" description="Runs the log-in functionality of the program">
+              	<java classname="Login_Register" failonerror="true" fork="yes">
+              		<classpath refid="CSE201 Project.classpath"/>
+              		        </java>
+              		    </target>
+              	<target name="User page" depends="compile" description="Runs the user page and it's functionalities">
+              	              	<java classname="User" failonerror="true" fork="yes">
+              	              		<classpath refid="CSE201 Project.classpath"/>
+              	              		        </java>
+              	              		    </target>
+    <target name="generate-javadoc" depends="init" description="Generate documentation">
+      <javadoc destdir="doc">
+      	<fileset dir="src"/>
+    	</javadoc>
+    </target>          	
 </project>
