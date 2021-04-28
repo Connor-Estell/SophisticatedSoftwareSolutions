@@ -18,18 +18,20 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 public class User extends JFrame implements ActionListener {
 	
 	JLabel appName, description, organization, version, link, price, search;
 	JTextField nameTF, descriptionTF, orgTF, versionTF, linkTF, priceTF, searchTF;
 	JButton addButton, saveButton, Logout;
-	JMenu filter, sort;
-	JMenuItem ios, android, full, alph_desc, alph_asc, price_low, price_high;
+	JMenu filter, sort, comment;
+	JMenuItem ios, android, full, alph_desc, alph_asc, price_low, price_high, read_comment, add_comment;
 	JTextArea appTA;
 	JMenuBar menuBar;
 	
@@ -60,6 +62,7 @@ public class User extends JFrame implements ActionListener {
 		menuBar = new JMenuBar();
 		filter = new JMenu("Filter");
 		sort = new JMenu("Sort");
+		comment = new JMenu("Comments");
 		full = new JMenuItem("Full List");
 		ios = new JMenuItem("IOS Version");
 		android = new JMenuItem("Android Version");
@@ -67,6 +70,8 @@ public class User extends JFrame implements ActionListener {
 		alph_asc = new JMenuItem("Alphabetical (Ascending)");
 		price_low = new JMenuItem("Lowest Price");
 		price_high = new JMenuItem("Highest Price");
+		read_comment = new JMenuItem("Read Comment");
+		add_comment = new JMenuItem("Add Comment");
 
 		JPanel addNewAppPanel = new JPanel();
 		addNewAppPanel.setLayout(new GridLayout(14, 1));
@@ -97,6 +102,8 @@ public class User extends JFrame implements ActionListener {
 		alph_asc.addActionListener(this);
 		price_low.addActionListener(this);
 		price_high.addActionListener(this);
+		read_comment.addActionListener(this);
+		add_comment.addActionListener(this);
 		filter.add(ios);
 		filter.add(android);
 		filter.add(full);
@@ -104,8 +111,11 @@ public class User extends JFrame implements ActionListener {
 		sort.add(alph_asc);
 		sort.add(price_low);
 		sort.add(price_high);
+		comment.add(read_comment);
+		comment.add(add_comment);
 		menuBar.add(filter);
 		menuBar.add(sort);
+		menuBar.add(comment);
 		setJMenuBar(menuBar);
 		
 		JPanel displayPanel = new JPanel();
@@ -176,7 +186,7 @@ public class User extends JFrame implements ActionListener {
 			file = new Scanner(check);
 		} catch (FileNotFoundException e) {
 			// Print the stack trace if there is a FileNotFound exception
-			e.printStackTrace();
+			
 			// Unable to locate the file. We don't want to perform rest of the operations
 			return;
 		}
@@ -204,9 +214,17 @@ public class User extends JFrame implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {
+		boolean bool = false;
+		try {
+			Double.parseDouble(priceTF.getText());
+		} catch (Exception e) {
+			bool = true;
+		}
 		if (arg0.getActionCommand().equals("Add Post")) {
 			if (!versionTF.getText().equals("IOS") && !versionTF.getText().equals("Android"))
 				Login_Register.infoBox("Please have the app either be an IOS or Android version", "App error message");
+			else if (bool = true)
+				Login_Register.infoBox("Please put in an actual number for the price.", "App error message");
 			else if (nameTF.getText().equals("") || descriptionTF.getText().equals("") || orgTF.getText().equals("") || versionTF.getText().equals("") || linkTF.getText().equals("")
 					|| priceTF.getText().equals(""))
 				Login_Register.infoBox("Please fill in all of the app information", "App error message");
@@ -346,6 +364,40 @@ public class User extends JFrame implements ActionListener {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		if (arg0.getActionCommand().equals("Highest Price")) {
+			try {
+				File file = Database.high_price();
+				readAppsFromFile(file);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (arg0.getActionCommand().equals("Read Comment")) {
+			Comment_Section frame = new Comment_Section();
+			try {
+				Comment_Section.createList();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		    Comment_Section.appList();
+			frame.setVisible(true);
+			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		}
+		if (arg0.getActionCommand().equals("Add Comment")) {
+			Comment_Add frame = new Comment_Add();
+			try {
+				Comment_Add.createList();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		    Comment_Add.appList();
+			frame.setVisible(true);
+			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		}
 	}
 }
