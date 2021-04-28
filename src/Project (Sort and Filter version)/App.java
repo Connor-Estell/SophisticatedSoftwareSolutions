@@ -1,14 +1,9 @@
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class App implements Serializable {
 	
@@ -23,7 +18,7 @@ public class App implements Serializable {
 		this.ver = ver;
 		this.link = link;
 		this.price = price;
-		this.comments = null;
+		comments = new ArrayList<String>();
 	}
 	
 	public String print() {
@@ -38,7 +33,7 @@ public class App implements Serializable {
 	public void save() {
 		try {
 			 
-            FileOutputStream fileOut = new FileOutputStream("app_object.txt", true);
+            FileOutputStream fileOut = new FileOutputStream("app_object.dat", true);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(this);
             objectOut.close();
@@ -51,7 +46,7 @@ public class App implements Serializable {
 	public void read() {
 		try {
 			 
-            FileInputStream fileIn = new FileInputStream("app_object.txt");
+            FileInputStream fileIn = new FileInputStream("app_object.dat");
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
  
             App app = (App) objectIn.readObject();
@@ -63,18 +58,15 @@ public class App implements Serializable {
         }
 	}
 	
+	public ArrayList<String> getComments() {
+		return comments;
+	}
+	
 	public void addComment(String comment) {
 		comments.add(comment);
 	}
 	
-	public static File readComment() throws IOException {
-		File empty = new File("empty.txt");
-		if(comments == null)
-			return empty;
-		BufferedWriter out = new BufferedWriter(new FileWriter("comments.txt", false));
-		for(String line : comments)
-			out.write(line + "\n");
-		out.close();
-		return new File("comments.txt");
+	public String printName() {
+		return name;
 	}
 }
