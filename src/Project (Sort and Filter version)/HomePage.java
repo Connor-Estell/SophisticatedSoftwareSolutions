@@ -184,7 +184,7 @@ public class HomePage extends JFrame implements ActionListener {
 			file = new Scanner(check);
 		} catch (FileNotFoundException e) {
 			// Print the stack trace if there is a FileNotFound exception
-			e.printStackTrace();
+			
 			// Unable to locate the file. We don't want to perform rest of the operations
 			return;
 		}
@@ -254,7 +254,7 @@ public class HomePage extends JFrame implements ActionListener {
 			// Print list of apps that contained search criteria
 			for (String application : appList) {
 				appTA.setText("");
-				appTA.append(application + "\n"); // Not 100% sure if this is correct area to be printing the apps just from looking at your code
+				appTA.append(application + "\n"); 
 			}
 		}
 		
