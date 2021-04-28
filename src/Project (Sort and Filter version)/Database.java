@@ -15,15 +15,20 @@ import java.util.Scanner;
 
 public class Database implements Comparator<App> {
 	
+	public static String name, level;
+	
 	public static void saveToFile(String username, String password) throws IOException {
 		BufferedWriter out = new BufferedWriter(new FileWriter("Log-ins.txt", true));
 		out.write(username + "," + password + "," + "User");
 		out.newLine();
 		out.close();
+		name = username;
 	}
 	
 	public static boolean search(String username) throws IOException {
-		BufferedReader read = new BufferedReader(new FileReader("Log-ins.txt"));
+		File file = new File("Log-ins.txt");
+		file.createNewFile();
+		BufferedReader read = new BufferedReader(new FileReader(file));
 			String str;
 			while ((str = read.readLine()) != null) {
 			String[] arr = str.split(",");
@@ -43,6 +48,8 @@ public class Database implements Comparator<App> {
 			String[] arr = str.split(",");
 			if(username.equals(arr[0]) && password.equals(arr[1])) {
 				read.close();
+				name = username;
+				level = arr[2];
 				return true;
 			}
 			}
@@ -71,7 +78,7 @@ public class Database implements Comparator<App> {
 	public static File alphabet_sort_desc() throws IOException, ClassNotFoundException {
 		ArrayList<App> list = new ArrayList<App>();
 		boolean cont = true;
-        FileInputStream fileIn = new FileInputStream("app_object.txt");
+        FileInputStream fileIn = new FileInputStream("app_object.dat");
  
            while(cont) {
         	   try {
@@ -96,7 +103,7 @@ public class Database implements Comparator<App> {
 	public static File alphabet_sort_asc() throws IOException, ClassNotFoundException {
 		ArrayList<App> list = new ArrayList<App>();
 		boolean cont = true;
-        FileInputStream fileIn = new FileInputStream("app_object.txt");
+        FileInputStream fileIn = new FileInputStream("app_object.dat");
  
            while(cont) {
         	   try {
@@ -121,7 +128,7 @@ public class Database implements Comparator<App> {
 	public static File low_price() throws IOException, ClassNotFoundException {
 		ArrayList<App> list = new ArrayList<App>();
 		boolean cont = true;
-        FileInputStream fileIn = new FileInputStream("app_object.txt");
+        FileInputStream fileIn = new FileInputStream("app_object.dat");
  
            while(cont) {
         	   try {
@@ -146,7 +153,7 @@ public class Database implements Comparator<App> {
 	public static File high_price() throws IOException, ClassNotFoundException {
 		ArrayList<App> list = new ArrayList<App>();
 		boolean cont = true;
-        FileInputStream fileIn = new FileInputStream("app_object.txt");
+        FileInputStream fileIn = new FileInputStream("app_object.dat");
  
            while(cont) {
         	   try {
