@@ -84,6 +84,14 @@ public class Login extends JFrame implements ActionListener{
 				setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				dispose();
 			}
+			else if (Database.level.equals("Admin")) {
+				Login_Register.infoBox("Thank you for logging in!", "Log-in Success");
+				Administrator frame = new Administrator();
+				frame.setVisible(true);
+				frame.setSize(900, 900);
+				setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+				dispose();
+			}
 			else {
 				Login_Register.infoBox("Thank you for logging in!", "Log-in Success");
 				User frame = new User();
