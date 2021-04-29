@@ -1,2 +1,4 @@
-Jon,Rogers,Mod
-Terry,pass,User
+Jon,Rogers,Admin
+Terry,pass,Mod
+Newguy,user,User
+New,User,User
