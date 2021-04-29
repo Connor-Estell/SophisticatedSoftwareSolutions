@@ -7,18 +7,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 public class Moderator extends User{
 	
-	JMenuItem delete_comment;
+	JMenu promote;
+	JMenuItem delete_comment, mod_promote;
 	
 	public Moderator() {
 		
 		delete_comment = new JMenuItem("Delete Comment");
+		promote = new JMenu("Promotions");
+		mod_promote = new JMenuItem("Mod Promotion");
 		delete_comment.addActionListener(this);
+		mod_promote.addActionListener(this);
 		comment.add(delete_comment);
+		promote.add(mod_promote);
 		menuBar.add(comment);
+		menuBar.add(promote);
 		setJMenuBar(menuBar);
 	}
 	
@@ -223,6 +230,16 @@ public class Moderator extends User{
 				e.printStackTrace();
 			}
 		    Comment_Add.appList();
+			frame.setVisible(true);
+			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		}
+		if (arg0.getActionCommand().equals("Mod Promotion")) {
+			Mod_Promoter frame = new Mod_Promoter();
+			try {
+				Mod_Promoter.userList();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			frame.setVisible(true);
 			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		}
