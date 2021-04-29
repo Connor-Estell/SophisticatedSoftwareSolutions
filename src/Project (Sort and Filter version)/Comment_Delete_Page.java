@@ -26,7 +26,7 @@ public static ArrayList<App> list;
 // with default values.
 public Comment_Delete_Page()
 {
-    setTitle("App Selection");
+    setTitle("Comment Selection");
     setBounds(200, 90, 1600, 900);
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     setResizable(false);
