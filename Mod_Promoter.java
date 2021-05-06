@@ -15,6 +15,17 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: Mod_Promoter.java
+ * Description: This class implements the functionality
+ * for moderators and administrators to be able to promote
+ * users to moderators. 
+ */
 public class Mod_Promoter  extends JFrame
 implements ActionListener {
 	  
@@ -26,7 +37,6 @@ protected JButton sub;
 private static JTextArea tout;
 public static int num, data;
 public static ArrayList<String> list;
-
 
 public Mod_Promoter()
 {
@@ -120,6 +130,10 @@ public static void main(String[] args) throws Exception
 			}
 		}
 	
+	/*
+	 * stores each user into a list to allow the mod/admin
+	 * to select a user by a specific number.
+	 */
 	public static void userList() throws IOException {
 		File file = new File("Log-ins.txt");
 		num = 0;
