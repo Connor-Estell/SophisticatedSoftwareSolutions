@@ -5,6 +5,18 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: App.java
+ * Description: Implements an App object which allowed us to
+ * read apps into files much easier. This class also creates
+ * our object file, which is used when displaying/dealing with
+ * comments.
+ */
 public class App implements Serializable {
 	
 	String name, desc, org, ver, link;
@@ -21,15 +33,25 @@ public class App implements Serializable {
 		comments = new ArrayList<String>();
 	}
 	
+	/*
+	 * Writes the application as a coherent string
+	 */
 	public String print() {
 		return "Application name: " + name + " : Description: " + desc + " : Organization: " + org + " : Versions: " + ver + 
 				" : Link: " + link + " : Price: " + price;
 	}
 	
+	/*
+	 * Writes the application as one string with all
+	 * parts only separated by a single comma. 
+	 */
 	public String printData() {
 		return name + "," + desc + "," + org + "," + ver + "," + link + "," + price;
 	}
 	
+	/*
+	 * Save the app objects to a .dat file
+	 */
 	public void save() {
 		try {
 			 
@@ -43,6 +65,9 @@ public class App implements Serializable {
         }
 	}
 	
+	/*
+	 * Reads the app objects from a .dat file to display them
+	 */
 	public void read() {
 		try {
 			 
@@ -58,14 +83,23 @@ public class App implements Serializable {
         }
 	}
 	
+	/*
+	 * Retrieves comments from a specific application
+	 */
 	public ArrayList<String> getComments() {
 		return comments;
 	}
 	
+	/*
+	 * Adds a comment String to a specific application
+	 */
 	public void addComment(String comment) {
 		comments.add(comment);
 	}
 	
+	/*
+	 * Returns the name of a specific application. 
+	 */
 	public String printName() {
 		return name;
 	}
