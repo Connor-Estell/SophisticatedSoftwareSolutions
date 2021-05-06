@@ -17,6 +17,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/*
+ * Samuel Fisher (fishe108)
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: AppTest.java
+ * Description: Shows up upon denial of a request for a submission.
+ * Essentially the same functionality as
+ * ReqMessage, just without submitting the application
+ * to HomePage as it is being declined. 
+ */
 public class DeclineMessage extends JFrame implements ActionListener {
 	
 	private JLabel message, entry;
@@ -33,17 +46,17 @@ public class DeclineMessage extends JFrame implements ActionListener {
 		JPanel adminReqPanel = new JPanel();
 		JPanel userReqPanel = new JPanel();
 		
-		message = new JLabel("Message: ");
-		messageTF = new JTextField(400);
+		//message = new JLabel("Message: ");
+		//messageTF = new JTextField(400);
 		send = new JButton("Send");
 		cancel = new JButton("Cancel");
 		
-		adminReqPanel.setLayout(new GridLayout(4, 1));
+		adminReqPanel.setLayout(new GridLayout(2, 1));
 		
-		adminReqPanel.add(message, 0);
-		adminReqPanel.add(messageTF, 1);
-		adminReqPanel.add(send, 2);
-		adminReqPanel.add(cancel, 3);
+		//adminReqPanel.add(message, 0);
+		//adminReqPanel.add(messageTF, 1);
+		adminReqPanel.add(send, 0);
+		adminReqPanel.add(cancel, 1);
 		
 		entryTA = new JTextArea(10, 40);
 		
@@ -56,8 +69,13 @@ public class DeclineMessage extends JFrame implements ActionListener {
 		add(adminReqPanel, BorderLayout.CENTER);
 		
 		entryTA.setText(input);
+		readAppsFromFile();
 	}
 	
+	/*
+	 * Reads the requests from requests.txt and displays
+	 * them to the entryTA. 
+	 */
 	public void readAppsFromFile(){
 		// Declare a Scanner object to read from the file
 		Scanner file = null;
@@ -81,21 +99,21 @@ public class DeclineMessage extends JFrame implements ActionListener {
 		entryTA.setText(str);
 	}
 	
-	public void writeAppsToFile() throws IOException {
-		// Declare an object PrintWriter object. It points to null
-		BufferedWriter bw = null;
-
-		try {
-			bw = new BufferedWriter(new FileWriter("app.txt", true));
-			bw.write(entryTA.getText());
-		} catch (FileNotFoundException e) {
-			// Print the stack trace if there is a FileNotFound exception
-			e.printStackTrace();
-			// Unable to create file. We don't want to perform rest of the operations
-			return;
-		}
-		bw.close();
-	}
+//	public void writeAppsToFile() throws IOException {
+//		// Declare an object PrintWriter object. It points to null
+//		BufferedWriter bw = null;
+//
+//		try {
+//			bw = new BufferedWriter(new FileWriter("app.txt", true));
+//			bw.write(entryTA.getText());
+//		} catch (FileNotFoundException e) {
+//			// Print the stack trace if there is a FileNotFound exception
+//			e.printStackTrace();
+//			// Unable to create file. We don't want to perform rest of the operations
+//			return;
+//		}
+//		bw.close();
+//	}
 	
 //	public void writeDenialToInbox() {
 //		PrintWriter pw = null;
@@ -110,6 +128,10 @@ public class DeclineMessage extends JFrame implements ActionListener {
 //		pw.close();
 //	}
 	
+	/*
+	 * Deletes the first app from requests.txt because
+	 * it has now been denied. 
+	 */
 	public void deleteAppFromFile() throws IOException {
 		Scanner in = new Scanner("requests.txt");
 		in.nextLine();
@@ -141,6 +163,10 @@ public class DeclineMessage extends JFrame implements ActionListener {
 			readAppsFromFile();
 			//writeDenialToInbox();
 			setVisible(false);
+			HomePage hp =  new HomePage();
+			hp.setSize(900, 900);
+			hp.setDefaultCloseOperation(EXIT_ON_CLOSE);
+			hp.setVisible(true);
 		}
 		if (e.getActionCommand().equals("Cancel")) {
 			setVisible(false);

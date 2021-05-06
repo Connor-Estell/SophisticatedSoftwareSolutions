@@ -15,6 +15,22 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+/**
+ * 
+ * @author samfisher (fishe108)
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: AdminBoard.java
+ * Description: Displays AdminBoard GUI, which shows 
+ * the requests that have been submitted 
+ * by users through the HomePage, and takes
+ * them to the ReqMessage or DeclineMessage
+ * screen to finish sending the submission
+ * back to HomePage
+ */
 public class AdminBoard extends JFrame implements ActionListener {
 	
 	JButton approve, decline;
@@ -49,6 +65,10 @@ public class AdminBoard extends JFrame implements ActionListener {
 		readRequestsFromFile();
 	}
 	
+	/*
+	 * Reads requests from requests.txt and 
+	 * displays them on the submissions Text area
+	 */
 	public void readRequestsFromFile() {
 		// Declare a Scanner object to read from the file
 		Scanner file = null;
@@ -73,6 +93,10 @@ public class AdminBoard extends JFrame implements ActionListener {
 		//return str;
 	}
 	
+	/*
+	 * Takes applications from app.txt and
+	 * makes sure it is correctly stored
+	 */
 	public String readAppsFromFile() {
 		Scanner file = null;
 
@@ -96,6 +120,9 @@ public class AdminBoard extends JFrame implements ActionListener {
 		return str;
 	}
 	
+	/*
+	 * Writes approved applications back to the HomePage
+	 */
 	public void writeAppsToFile() {
 		// Declare an object PrintWriter object. It points to null
 		PrintWriter pw = null;
@@ -113,6 +140,11 @@ public class AdminBoard extends JFrame implements ActionListener {
 		pw.close();
 	}
 	
+	/*
+	 * takes the first requests within requests.txt
+	 * and uses it to call the ReqMessage or DeclineMessage
+	 * class accordingly. 
+	 */
 	public String readFirstApp() {
 		Scanner file = null;
 
@@ -134,6 +166,11 @@ public class AdminBoard extends JFrame implements ActionListener {
 		return reqInput;
 	}
 	
+	/*
+	 * Deletes the first application from the 
+	 * requests.txt, mostly used within the ReqMessage
+	 * and DeclineMessage classes
+	 */
 	public void deleteAppFromFile() throws IOException {
 		Scanner in = new Scanner("requests.txt");
 		in.nextLine();

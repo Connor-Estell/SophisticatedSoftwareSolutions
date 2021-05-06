@@ -24,6 +24,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * 
+ * @author samfisher (fishe108)
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: HomePage.java
+ * Description: Displays the HomePage GUI when first opening
+ * the application, and called upon multiple times
+ * throughout running of the program. 
+ * Most GUI components completed by Samuel Fisher
+ * Most backend components completed by Evan Hambrick
+ * Search bar functionality completed by Connor Estell
+ * 
+ */
 public class HomePage extends JFrame implements ActionListener {
 
 	JLabel appName, description, organization, version, link, price, search;
@@ -166,6 +183,11 @@ public class HomePage extends JFrame implements ActionListener {
 		//readAppsFromFile();
 	}
 	
+	/*
+	 * Takes application requests and submits
+	 * them to the requests.txt file so that the
+	 * adminBoard can read them
+	 */
 	public void writeAppsToFile(String name, String desc, String org, String vers, String link, double price) {
 		// Declare an object PrintWriter object. It points to null
 		PrintWriter pw = null;
@@ -182,6 +204,10 @@ public class HomePage extends JFrame implements ActionListener {
 		pw.close();
 	}
 	
+	/*
+	 * Takes whatever is in 'check' and adds it to AppTA. 
+	 * We use it with app.txt
+	 */
 	public void readAppsFromFile(File check){
 		// Declare a Scanner object to read from the file
 		Scanner file = null;

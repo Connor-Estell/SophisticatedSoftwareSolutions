@@ -17,6 +17,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/*
+ * Samuel Fisher (fishe108)
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: AppTest.java
+ * Description: Displays a ReqMessage frame, 
+ * which is accessed from the adminBoard, and upon approval
+ * of a submission, will show the application and allow the admin
+ * to either send the submission or cancel.
+ */
 public class ReqMessage extends JFrame implements ActionListener {
 	
 	private JLabel message, entry;
@@ -59,6 +72,9 @@ public class ReqMessage extends JFrame implements ActionListener {
 		readAppsFromFile();
 	}
 	
+	/*
+	 * Reads the first request and sets it to the entryTA. 
+	 */
 	public void readAppsFromFile(){
 		// Declare a Scanner object to read from the file
 		Scanner file = null;
@@ -82,6 +98,9 @@ public class ReqMessage extends JFrame implements ActionListener {
 		entryTA.setText(str);
 	}
 	
+	/*
+	 * writes approved request back to app.txt
+	 */
 	public void writeAppsToFile() throws IOException {
 		// Declare an object PrintWriter object. It points to null
 		BufferedWriter bw = null;
@@ -111,6 +130,10 @@ public class ReqMessage extends JFrame implements ActionListener {
 //		pw.close();
 //	}
 	
+	/*
+	 * Deletes the first application from the requests.txt file
+	 * as it has now been approved
+	 */
 	public void deleteAppFromFile() throws IOException {
 		Scanner in = new Scanner("requests.txt");
 		in.nextLine();
