@@ -9,6 +9,18 @@ import java.util.List;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: Administrator.java
+ * Description: Has essentially the same functionality as
+ * the moderator class, except with further privileges of 
+ * promoting other people to administrators, and going
+ * to the administrator board to approve or decline app requests.
+ */
 public class Administrator extends Moderator {
 	JMenu admin_board;
 	JMenuItem admin_promote, board_link;
