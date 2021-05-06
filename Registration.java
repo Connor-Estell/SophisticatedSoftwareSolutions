@@ -12,6 +12,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: Registration.java
+ * Description: This class implements the gui for when
+ * users are trying to register a new account. It also
+ * implements the sanitized solutions for user input during
+ * registration. Once successfully registered, another gui will
+ * show up to let the user know, and they will be taken back to
+ * the HomePage. 
+ */
 public class Registration extends JFrame implements ActionListener{
 	
 	private Container contentPane;
