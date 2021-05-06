@@ -1,7 +1,7 @@
 # SophisticatedSoftwareSolutions- Appdex
 ### Overview:
   - Repository of ios and android applications with a comunity of users to grow and manage the repository.
-### Features
+### Features:
   - Holds a list of Applications
   - Applications contain information related to who made it, cost, etc.
   - List can by sorted by various information contained in the apps
@@ -14,7 +14,7 @@
   - Moderators and Administrators can delete comments
   - Administrators can aprove or decline submissions for new apps
 
-### File Tree
+### File Tree:
   - UML_Diagrams: Display Diagrams of verious systems in place in the app
   - info: Stores the help page for more detailed funtionality and the collection of code documentation
   - src: Holds the code that is a part of the working software
