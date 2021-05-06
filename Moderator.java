@@ -10,13 +10,24 @@ import java.util.List;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: Moderator.java
+ * Description: Essentially the same functionality as User
+ * class, except with further privileges of deleting comments
+ * and promoting others to Moderators as well. 
+ * Only shows up when someone is logged in as a moderator.
+ */
 public class Moderator extends User {
 	
 	JMenu promote;
 	JMenuItem delete_comment, mod_promote;
 	
 	public Moderator() {
-		
 		delete_comment = new JMenuItem("Delete Comment");
 		promote = new JMenu("Promotions");
 		mod_promote = new JMenuItem("Mod Promotion");
