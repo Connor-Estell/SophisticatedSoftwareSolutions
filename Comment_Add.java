@@ -15,6 +15,18 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: Comment_Add.java
+ * Description: This class implements the functionality
+ * for users and above to be able to add comments on
+ * any of the approved submissions that appear on the 
+ * HomePage.
+ */
 public class Comment_Add  extends JFrame
 implements ActionListener {
 	  
@@ -96,16 +108,23 @@ public static void main(String[] args) throws Exception
 		
 	}
 	
+	/*
+	 * Stores each app into a list so that users can
+	 * select what post they want to comment to individually
+	 */
 	public static void appList() {
-			String str = "";
-			num = 0;
-			for (App app : list) {
-				str += "Option [" + num + "]  " + app.print() + "\n\n";
-				num++;
-			}
-			tout.setText(str);
-			}
+		String str = "";
+		num = 0;
+		for (App app : list) {
+			str += "Option [" + num + "]  " + app.print() + "\n\n";
+			num++;
+		}
+		tout.setText(str);
+	}
 	
+	/*
+	 * creates a list to store app objects
+	 */
 	public static void createList() throws IOException {
 		boolean cont = true;
 	    FileInputStream fileIn = new FileInputStream("app_object.dat");
