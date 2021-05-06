@@ -16,6 +16,6 @@
 
 ### File Tree
   - UML_Diagrams: Display Diagrams of verious systems in place in the app
-  - info: Stores the help page for more detailed funtionality
+  - info: Stores the help page for more detailed funtionality and the collection of code documentation
   - src: Holds the code that is a part of the working software
   - tests: Holds the code of unit tests performed on the system.
