@@ -24,7 +24,7 @@ import javax.swing.JTextField;
  * Course: CSE 201, Section C
  * Date: 5/6/2021
  * Assignment: Appdex
- * File: AppTest.java
+ * File: ReqMessage.java
  * Description: Displays a ReqMessage frame, 
  * which is accessed from the adminBoard, and upon approval
  * of a submission, will show the application and allow the admin

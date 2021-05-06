@@ -24,7 +24,7 @@ import javax.swing.JTextField;
  * Course: CSE 201, Section C
  * Date: 5/6/2021
  * Assignment: Appdex
- * File: AppTest.java
+ * File: DeclineMessage.java
  * Description: Shows up upon denial of a request for a submission.
  * Essentially the same functionality as
  * ReqMessage, just without submitting the application
