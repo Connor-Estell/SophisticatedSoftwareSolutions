@@ -13,3 +13,8 @@
   - Registered Users can make comments about applications
   - Moderators and Administrators can delete comments
   - Administrators can aprove or decline submissions for new apps
+
+### File Tree
+  - UML_Diagrams: Display Diagrams of verious systems in place in the app
+  - src: Holds the code that is a part of the working software
+  - tests: Holds the code of unit tests performed on the system.
