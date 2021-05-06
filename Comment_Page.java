@@ -16,6 +16,17 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: Comment_Page.java
+ * Description: Displays the comments for a selected app, and
+ * allows the user to add other comments, go back to read 
+ * comments on another app, or go back to the home page by exiting.
+ */
 public class Comment_Page  extends JFrame
 implements ActionListener {
 	  
@@ -109,6 +120,10 @@ public static void main(String[] args) throws Exception
 		}
 		}
 	
+	/*
+	 * comments are stored in an array list and are retrieved
+	 * and printed to the tout text area to display the comments
+	 */
 	public void readComments(ArrayList<String> list) throws IOException {
 		/*BufferedReader read = new BufferedReader(new FileReader(file));
 		String str = "", line;
