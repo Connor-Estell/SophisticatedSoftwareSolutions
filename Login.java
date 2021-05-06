@@ -8,6 +8,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: Login.java
+ * Description: This displays the gui for when users
+ * are trying to log into an account that already exists.
+ * Once submit is pressed, another gui will show up to let
+ * user know if they have successfully logged in or not, 
+ * and if so, they will be taken to their respective page
+ * based on account privileges.
+ */
 public class Login extends JFrame implements ActionListener{
 	
 	private Container contentPane;

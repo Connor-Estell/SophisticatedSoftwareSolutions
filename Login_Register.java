@@ -10,6 +10,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: Login_Register.java
+ * Description: This displays a simple gui that
+ * gives the user the option of logging in or registering
+ * after they have pressed the "Log-in/Register" button
+ * from the HomePage. 
+ */
 public class Login_Register extends JFrame implements ActionListener{
 	//Gets container
 	private JPanel options;
