@@ -25,6 +25,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.PrintWriter;
+
+/*
+ * Name: Sophisticated Software Solutions
+ * Instructor: Dr Stephan
+ * Course: CSE 201, Section C
+ * Date: 5/6/2021
+ * Assignment: Appdex
+ * File: User.java
+ * Description: Displays mostly the same as the HomePage,
+ * however has the added functionality of reading and 
+ * adding comments on posts, as well as actually being able to post. 
+ * This will only show up once the user has logged in as only a user. 
+ */
 public class User extends JFrame implements ActionListener {
 	
 	JLabel appName, description, organization, version, link, price, search;
@@ -172,6 +185,9 @@ public class User extends JFrame implements ActionListener {
 		readAppsFromFile(new File("app.txt"));
 	}
 	
+	/*
+	 * writes applications to requests.txt comma separated. 
+	 */
 	public void writeAppsToFile(String name, String desc, String org, String vers, String link, String price) throws IOException {
 		// Declare an object PrintWriter object. It points to null
 		//PrintWriter pw = null;
@@ -182,6 +198,11 @@ public class User extends JFrame implements ActionListener {
 			pw.close();
 	}
 	
+	/*
+	 * Reads applications from the given file 'check', 
+	 * we use it to scan through app.txt and display it
+	 * to the appTA. 
+	 */
 	public void readAppsFromFile(File check){
 		// Declare a Scanner object to read from the file
 		Scanner file = null;
