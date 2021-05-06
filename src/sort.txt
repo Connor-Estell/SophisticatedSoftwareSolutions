@@ -1,0 +1,10 @@
+VSCO,share and edit pictures,VSCO,IOS,vsco.com,0.99
+boo,b,b,IOS,b,1.0
+hi,hi,nhi,IOS,hi,1.0
+Twitter,Share condensed thoughts,Twitter,IOS,Twitter.com,1.5
+iTunes,Listen to music on Apple product ,Apple,IOS,iTunes.com,1.98
+Instagram,Share pictures with your friends,Facebook,IOS,Instagram.com,1.99
+Snapchat,send pictures,SnapCo,IOS,Snapchat.com,2.49
+Facebook,share updates,Facebook,IOS,Facebook.com,2.49
+gang,gang,gang,Android,gang.com,14.0
+gang,gang,gang,Android,gang.com,14.0

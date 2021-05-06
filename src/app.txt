@@ -1,0 +1,9 @@
+Snapchat,send pictures,SnapCo,IOS,Snapchat.com,2.49
+Facebook,share updates,Facebook,IOS,Facebook.com,2.49
+Instagram,Share pictures with your friends,Facebook,IOS,Instagram.com,1.99
+iTunes,Listen to music on Apple product ,Apple,IOS,iTunes.com,1.98
+VSCO,share and edit pictures,VSCO,IOS,vsco.com,0.99
+Twitter,Share condensed thoughts,Twitter,IOS,Twitter.com,1.50 
+boo,b,b,IOS,b,1.00 
+hi,hi,nhi,IOS,hi,1.00 
+gang,gang,gang,Android,gang.com,14 
